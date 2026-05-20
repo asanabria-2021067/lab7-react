@@ -60,7 +60,7 @@ export function useCalculator() {
 
     if (operator && !shouldClear) {
       const result = calculateValue(operand ?? 0, currentValue, operator)
-      const formatted = formatResult(result)
+      const formatted = formatResult(result, hasNegativeInput(operand, currentValue))
       setDisplay(formatted)
       if (formatted === 'ERROR') {
         setOperand(null)
@@ -82,7 +82,7 @@ export function useCalculator() {
     }
     const currentValue = parseFloat(display)
     const result = calculateValue(operand, currentValue, operator)
-    const formatted = formatResult(result)
+    const formatted = formatResult(result, hasNegativeInput(operand, currentValue))
     setDisplay(formatted)
     setOperand(null)
     setOperator(null)
@@ -99,6 +99,8 @@ export function useCalculator() {
       default: return b
     }
   }
+
+  const hasNegativeInput = (a: number | null, b: number) => (a ?? 0) < 0 || b < 0
 
   return {
     display,

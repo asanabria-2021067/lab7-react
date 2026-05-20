@@ -8,7 +8,8 @@ A React + TypeScript + Vite calculator app with a custom UI inspired by a real C
 - **Input Constraints**:
   - Max 9 characters on display (including signs and decimal points)
   - Result > 999999999 shows `ERROR`
-  - Results below `-99999999` show `ERROR`
+  - Positive subtraction that produces a negative result shows `ERROR`
+  - Signed input with `+/-` can produce negative results up to 9 displayed characters
   - Precision division: auto-formats and rounds infinite decimals (like 22/7) to fit the 9-character display limit
 - **Design Inspiration**: Styled to resemble a Casio scientific calculator body, display, and key feel
 - **Modular Codebase**: Every single component file is strictly under 20 lines of code!

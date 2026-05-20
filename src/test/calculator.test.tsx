@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
 import { Calculator } from '../components/Calculator'
-import React from 'react'
 
 describe('Calculator App Tests', () => {
   const clickBtn = (label: string) => {
@@ -78,7 +77,7 @@ describe('Calculator App Tests', () => {
     clickBtn('-')
     clickBtn('8')
     clickBtn('=')
-    expect(getDisplayValue()).toBe('-3')
+    expect(getDisplayValue()).toBe('ERROR')
 
     clickBtn('C')
 
@@ -104,6 +103,14 @@ describe('Calculator App Tests', () => {
     clickBtn('+/-')
     expect(getDisplayValue()).toBe('-5')
 
+    clickBtn('+')
+    clickBtn('2')
+    clickBtn('=')
+    expect(getDisplayValue()).toBe('-3')
+
+    clickBtn('C')
+    clickBtn('5')
+    clickBtn('+/-')
     clickBtn('+/-')
     expect(getDisplayValue()).toBe('5')
 

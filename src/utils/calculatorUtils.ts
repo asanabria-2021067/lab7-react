@@ -1,5 +1,8 @@
-export function formatResult(num: number): string {
+export function formatResult(num: number, allowNegative = false): string {
   if (isNaN(num) || !isFinite(num)) {
+    return 'ERROR'
+  }
+  if (num < 0 && !allowNegative) {
     return 'ERROR'
   }
   if (num > 999999999 || num < -99999999) {
