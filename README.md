@@ -1,6 +1,6 @@
-# AuraCalc — Glassmorphic Neon Calculator
+# AuraCalc - Casio-Inspired Calculator
 
-A modern, highly-polished React + TypeScript + Vite calculator application built with a premium glassmorphic dark theme and glowing animations.
+A React + TypeScript + Vite calculator app with a custom UI inspired by a real Casio calculator (fx-570LA X), based on my own physical calculator reference.
 
 ## Key Features
 
@@ -8,9 +8,9 @@ A modern, highly-polished React + TypeScript + Vite calculator application built
 - **Input Constraints**:
   - Max 9 characters on display (including signs and decimal points)
   - Result > 999999999 shows `ERROR`
-  - Result < 0 shows `ERROR` (except manual `+/-` toggle inputs, which allow negative signs counting as a character)
+  - Results below `-99999999` show `ERROR`
   - Precision division: auto-formats and rounds infinite decimals (like 22/7) to fit the 9-character display limit
-- **State-of-the-art Design**: Custom glowing effects, premium glassmorphism, Outfit and Share Tech Mono Google Fonts, micro-interactions, and float animations
+- **Design Inspiration**: Styled to resemble a Casio scientific calculator body, display, and key feel
 - **Modular Codebase**: Every single component file is strictly under 20 lines of code!
 - **Compliant Linter**: Customized ESLint rules enforcing:
   - Javascript Standard style
