@@ -2,10 +2,7 @@ export function formatResult(num: number): string {
   if (isNaN(num) || !isFinite(num)) {
     return 'ERROR'
   }
-  if (num < 0) {
-    return 'ERROR'
-  }
-  if (num > 999999999) {
+  if (num > 999999999 || num < -99999999) {
     return 'ERROR'
   }
 
@@ -15,16 +12,19 @@ export function formatResult(num: number): string {
   }
 
   const rounded = Math.round(num)
-  if (rounded > 999999999) {
+  if (rounded > 999999999 || rounded < -99999999) {
     return 'ERROR'
   }
 
-  const intLength = Math.floor(num).toString().length
-  if (intLength >= 9) {
-    return Math.round(num).toString()
+  const signLength = num < 0 ? 1 : 0
+  const maxChars = 9 - signLength
+  const intLength = Math.floor(Math.abs(num)).toString().length
+  if (intLength >= maxChars) {
+    const roundedStr = Math.round(num).toString()
+    return roundedStr.length <= 9 ? roundedStr : 'ERROR'
   }
 
-  const allowedDecimals = 9 - intLength - 1
+  const allowedDecimals = maxChars - intLength - 1
   let formatted = num.toFixed(allowedDecimals)
 
   if (formatted.indexOf('.') > 0) {
@@ -47,6 +47,9 @@ export function formatResult(num: number): string {
     if (formatted.endsWith('.')) {
       formatted = formatted.slice(0, -1)
     }
+  }
+  if (formatted.length > 9) {
+    return 'ERROR'
   }
 
   return formatted
