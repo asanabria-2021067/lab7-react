@@ -2,6 +2,8 @@
 
 A React + TypeScript + Vite calculator app with a custom UI inspired by a real Casio calculator (fx-570LA X), based on my own physical calculator reference.
 
+**Hosted URL:** [https://lab7-react-nine.vercel.app/](https://lab7-react-nine.vercel.app/)
+
 ## Key Features
 
 - **Standard Operations**: Sum (+), Subtraction (-), Multiplication (*), Division (/), and Modulo (%)
